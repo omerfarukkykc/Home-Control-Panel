@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,500;0,700;1,300&display=swap");
+* {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    background-color: #313132;
+}
+
+button {
+    padding: 10px 24px;
+    background-color: #e7e7e7;
+    color: black;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: #f59c37;
+    cursor: pointer;
+    color: #e7e7e7;
+}
+
+.login {
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+    background-color: #f5f5f7cc;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.login .login-header {
+    height: 55px;
+    line-height: 51px;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+    color: #ececec;
+}
+
+.login form {
+    border-top: solid 1px black;
+    padding-top: 5px;
+    width: 63.5%;
+    height: 60%;
+}
+
+.login form .inputrow {
+    margin-bottom: 10px;
+    background-color: #ececec;
+    border-radius: 10px;
+}
+
+.login form .inputrow i {
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.login form label {
+    padding: 3px;
+    display: block;
+}
+
+.login input {
+    width: 79%;
+    padding: 12px 0px;
+    color: black;
+    background-color: #ececec;
+    box-shadow: none;
+    font-size: 15px;
+    padding-left: 10px;
+    transition: 0.2s;
+}
+
+.login input:focus {
+    outline: none;
+    padding-left: 15px;
+    transition: 0.2s;
+}
+
+.login .social {
+    line-height: 15px;
+    margin: 20px;
+    text-align: center;
+}
+
+.login .social a {
+    border: 1px solid black;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+}
+
+.login .submit-div {
+    width: 100%;
+}
+
+.login button {
+    display: table;
+    margin: 0 auto;
+    background-color: #ececec;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.login button:hover {
+    background-color: #f59c37;
+}
+
+.login .errorMessage {
+    text-align: center;
+    height: 25px;
+    padding-bottom: 5px;
+}
+
+.login .errorMessage span {
+    color: tomato;
+}
+
+.global-message {
+    width: 100%;
+    height: 56px;
+    display: none;
+    background-color: #999;
+    position: fixed;
+    top: -56px;
+    left: 0;
+    padding: 17px 10px;
+    text-align: center;
+    z-index: 9999;
+    color: #fff;
+    transition: top 10ms linear;
+}

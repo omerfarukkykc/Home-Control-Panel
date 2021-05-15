@@ -1,0 +1,536 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,500;0,700;1,300&display=swap");
+.swal2-top-end {
+    margin-top: 50px !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: #ececec;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    background-color: #313132;
+}
+
+input {
+    color: black;
+}
+
+.wrap {
+    height: 100%;
+    width: 100%;
+}
+
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    color: #313132;
+}
+
+.btn:active {
+    background-color: #313132!important;
+    color: #ececec;
+    transform: translateY(4px);
+}
+
+.btn:hover {
+    background-color: #313132;
+    color: rgb(255, 255, 255);
+}
+
+
+/*SİDEBAR START SİDEBAR START SİDEBAR START SİDEBAR START SİDEBAR START SİDEBAR START*/
+
+.sidebar {
+    width: 270px;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+    background-color: rgb(0, 0, 0, 0.3);
+}
+
+.sidebar-active .header,
+.sidebar-active .content {
+    margin-left: 270px;
+    transition: 0.16s;
+}
+
+.sidebar-deactive .sidebar {
+    margin-left: -270px;
+    transition: 0.16s;
+}
+
+.sidebar-deactive .header,
+.sidebar-deactive .content {
+    width: 100%;
+}
+
+
+/*--------------------Sidebar Header Start---------------------*/
+
+.sidebar .sidebar-header {
+    height: 51px;
+    line-height: 51px;
+    text-align: center;
+    font-size: 25px;
+    background-color: rgb(0, 0, 0, 0.3);
+}
+
+.sidebar-header a {
+    text-decoration: none;
+    color: #ececec;
+}
+
+.sidebar .sidebar-header div strong {
+    text-align: center;
+}
+
+
+/*--------------------Sidebar Header end---------------------*/
+
+
+/*--------------------Sidebar Profile Start---------------------*/
+
+.sidebar .sidebar-profile {
+    text-align: center;
+    font-size: 17px;
+    padding: 13px 0px;
+    height: 147px;
+}
+
+
+/* ÇALIŞMIYOR SOR */
+
+.sidebar-profile img {
+    width: 100;
+    height: 100;
+}
+
+.sidebar-profile .user-name {
+    margin-top: 10px;
+}
+
+
+/*--------------------Sidebar Profile end---------------------*/
+
+
+/*--------------------Sidebar Content Start---------------------*/
+
+.sidebar .sidebar-content {
+    height: calc(100% - 246px);
+    position: relative;
+    overflow: auto;
+}
+
+.sidebar .sidebar-content .option {
+    cursor: pointer;
+    display: block;
+    padding: 15px 15px 15px 42px;
+    color: #ccc;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.sidebar .sidebar-content li i {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    font-size: 18px;
+    color: #595959;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.sidebar .sidebar-content .option:hover {
+    background: #f5f5f7cc;
+    color: rgb(0, 0, 0);
+    padding: 15px 15px 15px 48px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    transition: 0.2s;
+}
+
+.sidebar .sidebar-content .accordion {
+    width: 100%;
+    max-width: 360px;
+}
+
+.sidebar .sidebar-content .option.open {
+    background: #f5f5f7cc;
+    color: rgb(0, 0, 0);
+    padding: 15px 15px 15px 54px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    transition: 0.2s;
+}
+
+.sidebar .sidebar-content .accordion li.open .link {
+    background-color: #f5f5f7cc;
+    padding: 15px 15px 15px 54px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    color: black;
+}
+
+.sidebar .sidebar-content .accordion li i {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    font-size: 18px;
+    color: #c8dbec;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.sidebar .sidebar-content .accordion li i.fa-chevron-down {
+    right: 12px;
+    left: auto;
+    font-size: 16px;
+}
+
+.sidebar .sidebar-content .accordion div.open i.fa-chevron-down {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+/* Submenu start*/
+
+.sidebar .sidebar-content .accordion .submenu {
+    font-size: 14px;
+}
+
+.sidebar .sidebar-content .accordion .submenu.open {
+    display: block;
+}
+
+.sidebar .sidebar-content .accordion .submenu.closePersonal {
+    visibility: hidden;
+    display: none;
+}
+
+.sidebar .sidebar-content .accordion a {
+    text-decoration: none;
+}
+
+.sidebar .sidebar-content .accordion .submenu .sub-option {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    color: #d9d9d9;
+    padding: 12px 2px;
+    padding-left: 12px;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    border-left: #f5f5f7cc 2px solid;
+}
+
+.sidebar .sidebar-content .accordion .submenu .sub-option:hover {
+    background: #f5f5f7cc;
+    color: rgb(0, 0, 0);
+    transition: 0.2s;
+    padding-left: 15px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.sidebar .sidebar-content .accordion .submenu .sub-option.open {
+    background: #f5f5f7cc;
+    color: black;
+    transition: 0.2s;
+    padding-left: 18px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.sidebar .sidebar-content .accordion .submenu .sub-option.ml-25 {
+    margin-left: 25px;
+}
+
+
+/*Submenu end*/
+
+
+/*-------------------------Sidebar Content End-----------------------*/
+
+
+/*-------------------------SideBar Footer Start----------------------*/
+
+.sidebar .sidebar-footer {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/*-------------------------SideBar Footer End----------------------*/
+
+
+/*SİDEBAR END SİDEBAR END SİDEBAR END SİDEBAR END SİDEBAR END SİDEBAR END SİDEBAR END*/
+
+
+/*HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER*/
+
+.header {
+    background-color: rgb(0, 0, 0, 0.3);
+    z-index: 2;
+    height: 51px;
+    width: calc(100% - 270px);
+    position: fixed;
+}
+
+
+/*Hamburger Left Start*/
+
+.header .left {
+    float: left;
+}
+
+.header .left .menu-switch:hover {
+    background-color: #f5f5f7cc;
+    border-radius: 10px;
+}
+
+.header .left .menu-switch:hover .lines {
+    background: #000000;
+}
+
+.header .left .menu-switch:hover .lines:before {
+    background: #000000;
+}
+
+.header .left .menu-switch:hover .lines:after {
+    background: #000000;
+}
+
+.header .left .menu-link-wrapper {
+    height: 51px;
+    width: 51px;
+    float: left;
+    cursor: pointer;
+}
+
+.header .left .menu-link {
+    width: 100%;
+    height: 100%;
+}
+
+.header .left .lines {
+    -moz-transition: background 0.2s ease 0.4s;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #aaa;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    width: 60%;
+    margin: 0 20%;
+    position: relative;
+    background: #0099ff;
+    top: 22px;
+}
+
+.header .left .lines:before,
+.header .left .lines:after {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #aaa;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    position: absolute;
+    left: 0;
+    content: "";
+    background: #0099ff;
+    -moz-transition: -moz-transform 0.2s ease 0s, width 0.2s ease 0.2s, top 0.2s ease 0.4s;
+    -o-transition: -o-transform 0.2s ease 0s, width 0.2s ease 0.2s, top 0.2s ease 0.4s;
+    -webkit-transition: -webkit-transform 0.2s ease, width 0.2s ease, top 0.2s ease;
+    -webkit-transition-delay: 0s, 0.2s, 0.4s;
+    transition: transform 0.2s ease 0s, width 0.2s ease 0.2s, top 0.2s ease 0.4s;
+    -moz-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+}
+
+.header .left .lines:before {
+    top: -9px;
+}
+
+.header .left .lines:after {
+    top: 9px;
+}
+
+.header .left .menu-trigger-open .lines {
+    -moz-transition: background 0.2s ease 0s;
+    -o-transition: background 0.2s ease 0s;
+    -webkit-transition: background 0.2s ease;
+    -webkit-transition-delay: 0s;
+    transition: background 0.2s ease 0s;
+}
+
+.header .left .menu-trigger-open .lines:before,
+.header .left .menu-trigger-open .lines:after {
+    -moz-transition: top 0.2s ease 0s, width 0.2s ease 0.2s, -moz-transform 0.2s ease 0.4s;
+    -o-transition: top 0.2s ease 0s, width 0.2s ease 0.2s, -o-transform 0.2s ease 0.4s;
+    -webkit-transition: top 0.2s ease, width 0.2s ease, -webkit-transform 0.2s ease;
+    -webkit-transition-delay: 0s, 0.2s, 0.4s;
+    transition: top 0.2s ease 0s, width 0.2s ease 0.2s, transform 0.2s ease 0.4s;
+    top: 0;
+    width: 50%;
+}
+
+.header .left .menu-trigger-open .lines:before {
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.header .left .menu-trigger-open .lines:after {
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+}
+
+
+/*Dropdown*/
+
+.header .left .dropbtn {
+    color: #0099ff;
+    line-height: 39px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.header .left .dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    height: 49px;
+    border-radius: 10px;
+}
+
+.header .left .dropdown.close {
+    display: none;
+}
+
+.header .left .dropdown:hover .dropbtn {
+    color: #000000;
+}
+
+.header .left .dropdown:hover {
+    background-color: #0099ff;
+}
+
+.header .left .dropdown-content {
+    display: none;
+    border-radius: 5px;
+    background-color: #0099ff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.header .left .dropdown-content a {
+    color: black;
+    padding: 3px 3px;
+    text-decoration: none;
+    display: block;
+}
+
+.header .left .dropdown-content a:hover {
+    background-color: #000000;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.header .left .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*Header Left end*/
+
+
+/*Header Right Strat*/
+
+.header .right {
+    line-height: 50px;
+    float: right;
+    text-align: right;
+}
+
+.header .right.close {
+    display: none;
+}
+
+.header .right .sign-out {
+    float: right;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    padding: 5px;
+    line-height: 39px;
+}
+
+.header .right .sign-out:hover {
+    background-color: #ff3410;
+    border-radius: 10px;
+    height: 49px;
+}
+
+.header .right .sign-out:hover a {
+    color: #000000;
+}
+
+.header .right .sign-out a {
+    text-decoration: none;
+    color: #ff3410;
+}
+
+
+/*HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END*/
+
+
+/*CONTENT START CONTENT START CONTENT START CONTENT START CONTENT START CONTENT START CONTENT*/
+
+.content {
+    background-color: #404040;
+    height: 100%;
+    display: block;
+    overflow: auto;
+    margin-top: 51px;
+    width: calc(100% - 270px);
+    padding: 20px 40px;
+    position: fixed;
+    z-index: 1;
+}
+
+
+/*CONTENT END CONTENT END CONTENT END CONTENT END CONTENT END CONTENT END CONTENT END CONTENT END*/
