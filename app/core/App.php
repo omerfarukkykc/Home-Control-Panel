@@ -12,24 +12,27 @@ class App {
 
     public function __construct($activePath, $activeMethod, $config)
     {
+
+        
         $this->activePath = $activePath;
+
         $this->activeMethod = $activeMethod;
         self::$config = $config;
         $this->auth = self::$config['authentication'];
 
-        $this->notFound = function (){
+        $this->notFound = function ($data){
             http_response_code(404);
-            echo "404 not found";
+            Controller::redirect("/404");
         };
 
     }
 
-    public static function get($path, $auth = false, $callback = null)
+    public static function get($path, $auth = false,  $callback = null)
     {
         self::$routes[] = ['GET', $path, $auth, $callback];
+        
     }
-
-    public static function post($path, $auth = false, $callback = null)
+    public static function post($path, $auth = false,  $callback = null)
     {
         self::$routes[] = ['POST', $path, $auth, $callback];
     }
@@ -99,8 +102,7 @@ class App {
             }
             
         }
-        
-        return call_user_func($this->notFound);
+        return call_user_func_array($this->notFound,array([$pathCheck,$this->activePath,$params]));
         
     }
     

@@ -4,7 +4,8 @@ class clientController extends Controller implements FrontController{
     public function loginAction()
     {   $clientModel = new clientModel();
         if(isset($_SESSION['user'])){
-        Controller::redirect("/client/dashboard");
+            Controller::redirect("/client/dashboard");
+
         }
         $clientModel->loginModel();
         $param = null;

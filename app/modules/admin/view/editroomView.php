@@ -1,38 +1,44 @@
-<link rel="stylesheet" href="/assets/admin/css/editroom.css ">
+
 <div class="content">
         <b style="float: left;font-size: 30px;">Room Edit Menu</b>
-           <div class="background">
+           <div style="padding-top: 50px;" class="background">
                 <div class="cards3">
                     <div class="title"><b>Room information</b></div>
-                    <div class="input-line long">
-                        <label for="firstname "><b>Room name:</b></label>
-                        <div class="input-box">
-                            <input type="text" class="w-100" placeholder="Enter Room name" value="<?php echo $data["roomName"]?>" id="roomName" required>
+                    <form id="a">
+                        <div>
+                            <div class="input-line inline-block">
+                                <label for="firstname "><b>Room name:</b></label>
+                                <div class="input-box">
+                                    <input type="text" class="w-100" placeholder="Enter Room name" value="<?php echo $data["roomName"]?>" id="roomNamei" required>
+                                </div>
+                            </div>
+                            <div class="input-line inline-block">
+                                <button id="saveChanges" type="submit">Save changes</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-line">
-                        <button id="addRoom" type="submit">Save changes</button>
-                    </div>
+                    </form>
 
                 </div>  
                 <div class="cards3">
-                    <div class="title"><b>Add socket</b></div>
-                    <div class="input-line long">
-                        <label for="firstname "><b>Socket name:</b></label>
-                        <div class="input-box">
-                            <input type="text" class="w-100" placeholder="Enter Socket name"  id="socketName" required>
+                    <div>
+                        <div class="title"><b>Add socket</b></div>
+                        <div class="input-line inline-block">
+                            <label for="firstname "><b>Socket name:</b></label>
+                            <div class="input-box">
+                                <input type="text" class="w-100" placeholder="Enter Socket name"  id="socketName" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="input-line">
-                        <button id="addSocket" type="submit">Add socket</button>
+                        <div class="input-line inline-block">
+                            <button id="addSocket" type="submit">Add socket</button>
+                        </div>
                     </div>
                     <div class="title"><b>Sockets</b></div>
                     <table id="table">
                         <thead>
                             <tr>
                                 <th>Socket name</th>
-                                <th style="text-align: center;">Edit</th>
+                                <th style="text-align: center;">Status</th>
                                 <th style="text-align: center;">Delete</th>
                             </tr>
                         </thead>
@@ -41,23 +47,26 @@
                     </table>
                 </div>
                 <div class="cards3">
-                    <div class="title"><b>Add device</b></div>
-                    <div class="input-line long">
-                        <label for="firstname "><b>Device name:</b></label>
-                        <div class="input-box">
-                            <input type="text" class="w-100" placeholder="Enter Device name" id="deviceName" required>
+                    <div>
+                        <div class="title"><b>Add device</b></div>
+                        <div class="input-line inline-block">
+                            <label for="firstname "><b>Device name:</b></label>
+                            <div class="input-box">
+                                <input type="text" class="w-100" placeholder="Enter Device name" id="deviceName" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="input-line">
-                        <button id="addDevice" type="submit">Add device</button>
+                        <div class="input-line inline-block">
+                            <button id="addDevice" type="submit">Add device</button>
+                        </div>
                     </div>
                     <div class="title"><b>Devices</b></div>
                     <table id="table">
                         <thead>
                             <tr>
                                 <th>Device Name</th>
-                                <th style="text-align: center;">Edit</th>
+                                <th style="text-align: center;">Type</th>
+                                <th style="text-align: center;">Value</th>
                                 <th style="text-align: center;">Delete</th>
                             </tr>
                         </thead>
@@ -83,7 +92,8 @@
                   $("#devicesTable").prepend(`
                   <tr>
                      <td>` + item.device_name + `</td>
-                     <td style="text-align: center;"><a href="/admin/editDevice/` + item.ID + `"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a></td>
+                     <td style="text-align: center;">` + item.device_type  + `</td>
+                     <td style="text-align: center;">` + item.value + `</td>
                      <td style="text-align: center;"><i style="color:#C70000;" onclick="deleteDevice(` + item.ID + `)" class="fa fa-trash fa-lg" aria-hidden="true"></i></td>
                   </tr>
                   `)
@@ -106,11 +116,14 @@
                "room_id": <?php echo $data["ID"] ?>
             },
             success: function(msg) {
-                Toast.fire({
-                 icon: 'success',
-                 title: 'Device başarıyla eklendi'
-             });
-               getDevice();
+                if(msg!="fail"){
+                    Toast.fire({
+                    icon: 'success',
+                    title: 'Device başarıyla eklendi'
+                    });
+                getDevice();
+                $("#deviceName").val("") 
+                }   
             }
          });
       })
@@ -145,8 +158,8 @@
                   $("#socketsTable").prepend(`
                   <tr>
                      <td>` + item.socket_name + `</td>
-                     <td style="text-align: center;"><a href="/admin/editDevice/` + item.ID + `"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a></td>
-                     <td style="text-align: center;"><i style="color:#C70000;" onclick="deleteDevice(` + item.ID + `)" class="fa fa-trash fa-lg" aria-hidden="true"></i></td>
+                     <td style="text-align: center;">` + item.status + `</td>
+                     <td style="text-align: center;"><i style="color:#C70000;" onclick="deleteSocket(` + item.ID + `)" class="fa fa-trash fa-lg" aria-hidden="true"></i></td>
                   </tr>
                   `)
                })
@@ -163,11 +176,14 @@
                "room_id": <?php echo $data["ID"] ?>
             },
             success: function(msg) {
-                Toast.fire({
-                 icon: 'success',
-                 title: 'Soket başarıyla eklendi'
-             });
-             getSockets();
+                if(msg!="fail"){
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Soket başarıyla eklendi'
+                    });
+                    getSockets();
+                    $("#socketName").val("")
+                }
             }
          });
       })
@@ -184,5 +200,21 @@
             }
          });
       }
+      $('#a').submit(function(e){
+          e.preventDefault();
+          var form = $(this);
+          
+        $.ajax({
+            url: "/admin/saveroom",
+            type: "POST",
+            data: {
+               "room_id": <?php echo $data["ID"] ?>,
+               "roomName": $('#roomNamei').val()
+            },
+            success: function(msg) {
+            }
+         });
+
+      })
 
         </script>

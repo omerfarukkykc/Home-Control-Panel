@@ -9,6 +9,7 @@ App::get('/default/login', false);
 
 
 //Client pages
+
 App::get('/client/login', false);
 App::get('/client/logout', true);
 App::get('/client/dashboard', true);
@@ -49,12 +50,7 @@ App::post('/admin/deletedevice', true);
 App::post('/admin/getsockets', true);
 App::post('/admin/addsocket', true);
 App::post('/admin/deletesocket', true);
-
-
-
-
-
-
+App::post('/admin/saveroom', true);
 
 
 ?>

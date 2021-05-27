@@ -122,4 +122,16 @@ class adminController extends Controller implements FrontController{
         $adminModel = new adminModel();
         echo $adminModel->addSocketModel();
     }
+    public function deletesocketAction(){
+        $adminModel = new adminModel();
+        $adminModel->deleteSocketModel();
+    }
+    public function deletedeviceAction(){
+        $adminModel = new adminModel();
+        $adminModel->deleteDeviceModel();
+    }
+    public function saveroomAction(){
+        $adminModel = new adminModel();
+        $adminModel->saveRoomModel();
+    }
 } 

@@ -19,6 +19,8 @@ class adminModel extends Model{
             }else if($user['rol_id']==2){
                 $_SESSION['user'] = $user;
             }
+        }else{
+            print_r($user);
         }
 
     }
@@ -174,8 +176,8 @@ class adminModel extends Model{
         return json_encode($devices);
     }
     public function addDeviceModel(){
-        if(!isset($_POST['room_id'])||!isset($_POST['device_name'])){
-            return null;
+        if(!isset($_POST['room_id'])||!isset($_POST['device_name'])||""==$_POST['device_name']){
+            return "fail";
         }
         $this->db->insert("room_devices",$_POST);
     }
@@ -184,7 +186,7 @@ class adminModel extends Model{
             return null;
         }
         $this->db->where("ID",$_POST['device_id']);
-        $this->db->delete("room_sockets");
+        $this->db->delete("room_devices");
     }
     public function getSocketsModel(){
         if(!isset($_POST['room_id'])){
@@ -195,8 +197,8 @@ class adminModel extends Model{
         return json_encode($sockets);
     }
     public function addSocketModel(){
-        if(!isset($_POST['room_id'])||!isset($_POST['socket_name'])){
-            return null;
+        if(!isset($_POST['room_id'])||!isset($_POST['socket_name'])||""==$_POST['socket_name']){
+            return "fail";
         }
         $this->db->insert("room_sockets",$_POST);
     }
@@ -204,5 +206,18 @@ class adminModel extends Model{
         if(!isset($_POST['socket_id'])){
             return null;
         }
+        $this->db->where("ID",$_POST['socket_id']);
+        $this->db->delete("room_sockets");
     }
+    public function saveRoomModel(){
+        if(!isset($_POST['room_id'])||!isset($_POST['roomName']))
+        {
+            
+            return null;
+        }
+        $this->db->where("ID",$_POST['room_id']);
+        $this->db->update("rooms",$_POST);
+        
+    }
+    
 }

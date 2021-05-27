@@ -86,15 +86,17 @@
             </div>
             <div class="right">
                <div class="title">Room add</div>
-               <div class="input-line long">
-                  <label for="firstname ">Room name:</label>
-                  <div class="input-box">
-                     <input type="text" class="w-100" placeholder="Enter Room name" id="roomName" required>
+               <div>
+                  <div class="input-line inline-block">
+                     <label for="firstname ">Room name:</label>
+                     <div class="input-box">
+                        <input type="text" class="w-100" placeholder="Enter Room name" id="roomName" required>
+                     </div>
                   </div>
-               </div>
 
-               <div class="input-line">
-                  <button id="addRoom" type="submit">Add room</button>
+                  <div class="input-line inline-block">
+                     <button id="addRoom" type="submit">Add room</button>
+                  </div>
                </div>
                <div class="title">Rooms</div>
                <table id="rooms">
@@ -160,7 +162,7 @@
             data: {
                "roomname": x,
                "id": <?php echo $data["ID"] ?>
-            },
+            }, 
             success: function(msg) {
                 Toast.fire({
                  icon: 'success',

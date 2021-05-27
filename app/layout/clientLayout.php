@@ -24,7 +24,7 @@
     <script src="/assets/client/js/echarts.min.js"></script>
     <script src="/assets/client/js/dashboard.js"></script>
     <script src="/assets/client/js/main.js"></script>
-    <script src="https://kit.fontawesome.com/f03a2ca762.js" crossorigin="anonymous"></script>
+    <script src="/assets/client/js/fontawesome.js"></script>
 
 </body>
 

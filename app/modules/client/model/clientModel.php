@@ -12,6 +12,7 @@ class clientModel extends Model {
             $_SESSION['user'] = $user;
             Controller::redirect("/client/dashboard");
         }
+        
     }
     public function dashboardModel(){
         $this->db->where("user_id",$_SESSION['user']['ID']);

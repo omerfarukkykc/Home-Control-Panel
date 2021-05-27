@@ -218,12 +218,8 @@ input::placeholder {
     background-color: #e7e7e7;
     color: black;
     transition-duration: 0.4s;
-}
-
-.input-line button:hover {
-    background-color: #f59c37;
+    border-radius: 20px;
     cursor: pointer;
-    color: #e7e7e7;
 }
 
 input:focus {
@@ -248,19 +244,6 @@ option {
     padding: 10px;
 }
 
-button {
-    padding: 10px 24px;
-    background-color: #e7e7e7;
-    color: black;
-    transition-duration: 0.4s;
-}
-
-button:hover {
-    background-color: #f59c37;
-    cursor: pointer;
-    color: #e7e7e7;
-}
-
 #table {
     width: 400px;
     letter-spacing: 2px;
@@ -280,6 +263,8 @@ button:hover {
     padding: 15px 0px 15px 8px;
     font-weight: 300;
     font-size: 15px;
+    color: black;
+    font-weight: 700;
 }
 
 #table td i {

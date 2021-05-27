@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/assets/client/css/main.css">
     <link rel="stylesheet" href="/assets/client/css/dashboard.css">
     <link rel="stylesheet" href="/assets/admin/css/main.css">
+    <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="/assets/client/js/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
