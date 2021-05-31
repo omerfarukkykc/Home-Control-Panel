@@ -2,8 +2,9 @@
 class adminController extends Controller implements FrontController{
     
     public function dashboardAction($param = null)
-    {
-        $this->RenderLayout("admin","admin","dashboard",$param);
+    {   $adminModel = new adminModel();
+        $data = $adminModel->dashboardModel();
+        $this->RenderLayout("admin","admin","dashboard",$data);
     }
     public function loginAction()
     {   

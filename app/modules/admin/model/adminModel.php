@@ -1,5 +1,13 @@
 <?php 
 class adminModel extends Model{
+    public function dashboardModel(){
+        for($i=0;$i<12;$i++){
+            $this->db->where("MONTH(creationDate)",$i);
+            $data['userCountMonthly'][$i] = count($this->db->get("users"));
+        }
+        $data['userCount'] = count($this->db->get("users")); 
+        return $data;
+    }
     public function loginModel()
     {
 

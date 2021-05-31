@@ -18,11 +18,8 @@ class App {
         $this->activeMethod = $activeMethod;
         self::$config = $config;
         $this->auth = self::$config['authentication'];
-
         $this->notFound = function ($data){
             http_response_code(404);
-            print_r($data);
-            exit;
             Controller::redirect("/404");
         };
 
@@ -47,16 +44,20 @@ class App {
             $methodCheck = $this->activeMethod == $method;
             $pathCheck   = preg_match("~^{$path}$~", $this->activePath, $params);
             if($methodCheck && $pathCheck)
-            {   
+            {   array_shift($params);
                 preg_match("~^{$path}$~", $path, $receivedParameters);
                 array_shift($receivedParameters);
-                $numberOfParameter = count(explode("/",$receivedParameters[0]));
-                array_shift($params);
-                if(count(explode("/",$params[0]))!=$numberOfParameter){
-                    continue;
+                if(isset($receivedParameters[0])){
+                    $numberOfParameter = count(explode("/",$receivedParameters[0]));
+                    
+                    if(count(explode("/",$params[0]))!=$numberOfParameter){
+                        continue;
+                    }
                 }
-                
-                
+                if($route[3]!=null){
+                    call_user_func($route[3]);
+                    exit;
+                }
                 if($path=="/")
                 {  
                     

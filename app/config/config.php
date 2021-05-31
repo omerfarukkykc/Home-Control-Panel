@@ -4,6 +4,7 @@ define('APP_DIR', '../app');
 define('CORE', APP_DIR.'/core');
 define('CONFIG', APP_DIR.'/config');
 define('USER_IP', $_SERVER["REMOTE_ADDR"]);
+define('BROWSER_INFO', $_SERVER['HTTP_USER_AGENT']);
 define("HOST", "localhost");
 define("USER", "root");
 define("PASS", "");

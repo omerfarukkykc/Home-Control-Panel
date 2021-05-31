@@ -299,3 +299,9 @@ option {
 .background .title b {
     color: #000000;
 }
+
+.block .indicator {
+    font-weight: 800;
+    color: black;
+    font-size: 30px;
+}

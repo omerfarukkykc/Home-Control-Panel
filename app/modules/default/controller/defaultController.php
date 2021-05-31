@@ -8,10 +8,10 @@
         public function contactusAction(){
             $this->RenderLayout("default","default", "contactus");
         }
-        public function blockedAction($ip_address,$ban_reson=null){
-            echo "{$ip_address} ip adresli kullanıcı engellenmiştir engelin kalkması için lütfen iletişime geçin<br>";
-            echo ($ban_reson!=null)?"Ban sebebi : {$ban_reson}":null;
+        public function blockedAction(){
+            $defaultModel = new defaultModel();
+            $data['ip'] = USER_IP;
+            $data['msg'] = $defaultModel->blockedAction(USER_IP)['msg'];
+            $this->RenderLayout("login","default","blocked",$data);
         }
     }
-
-?>

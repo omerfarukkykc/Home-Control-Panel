@@ -5,7 +5,6 @@ class Middleware {
         if($action!="blockedAction"){
             self::log_ip_checker();
         }
-        
         self::log_ip_saver($module,$action);
         if(file_exists($file = APP_DIR."/modules/{$module}/middleware/{$middleware}.php"))
         {
@@ -45,35 +44,28 @@ class Middleware {
         $model->db->where("ip_address",USER_IP);
         $data = $model->db->getOne("log_blocked_ip_addresses");
         if($data!=null){
-            if($data['ban_reson']!=null){
-                Controller::redirect("/default/blocked/{$data['ip_address']}/{$data['ban_reson']}");
-                exit;
-            }else{
-                Controller::redirect("/default/blocked/{$data['ip_address']}");
-                exit;
-            }
+            Controller::redirect("/default/blocked");
+            exit;
         }
     }
-    public static function log_ip_saver($module,$action){
+    public static function log_ip_saver($module,$action){   
         $model = new Model();
-        $date = new DateTime();
         $data = array(
-            'ip_address' => USER_IP,
-            'module'     => $module,
-            'action'     => $action
+            'ip_address'    => USER_IP,
+            'module'        => $module,
+            'action'        => $action,
+            'browser_info'  =>BROWSER_INFO
         );
         if(isset($_SESSION['user'])){
             $data['user_id'] = $_SESSION['user']['ID'];
         }
         $model->db->insert("log_ip_addresses",$data);
     }
-    public function log_ip_block($block_reson = null){
+    public function log_ip_block($block_reson_id = 1){
         $model = new Model();
-        $date = new DateTime();
         $data = array(
             'ip_address' => USER_IP,
-            'blocked_date' => $date->getTimestamp(),
-            'ban_reson' => $block_reson
+            'ban_reson_id' => $block_reson_id
         );
         if(isset($_SESSION['user'])){
             $data['user_id'] = $_SESSION['user']['ID'];

@@ -1,7 +1,7 @@
 <?php
     $chartLabel = array("Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık");
-    $chartData = array(65,68,75,81,95,105,130,120);
-    $chartName = "2021 Aylık Kayıt Grafiği";
+    $chartData = $data['userCountMonthly'];
+    $chartName = "2021 Aylık müşteri Kayıt Grafiği";
     $chartName = json_encode($chartName);
     $chartLabel = json_encode($chartLabel);
     $chartData = json_encode($chartData);
@@ -15,8 +15,31 @@
             <canvas id="myChart"></canvas>
         </div>
         <div class="cards-2">
-            <canvas id="myChart1"></canvas>
-
+            <div style="line-height:100px; " class="cards-3">
+                <div class="indicator">
+                    Kullanıcı sayısı
+                </div>
+                
+                <div class="indicator" >
+                   <?=$data['userCount']?>
+                </div>
+            </div>
+            <div style="line-height:100px; "  class="cards-3">
+                <div class="indicator">
+                    Brüt Kazanç
+                </div>
+                <div class="indicator" >
+                <?=$data['userCount']*1500?> ₺
+                </div>
+            </div>
+            <div style="line-height:100px; "  class="cards-3">
+                <div class="indicator">
+                    Net Kazanç
+                </div>
+                <div class="indicator" >
+                <?=$data['userCount']*1000?> ₺
+                </div>
+            </div>
         </div>
     </div>
 </div>
