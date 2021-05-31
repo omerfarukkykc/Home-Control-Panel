@@ -16,6 +16,8 @@
     <script src="/assets/client/js/main.js"></script>
     <script src="/assets/admin/js/main.js"></script>
     <script src="https://kit.fontawesome.com/f03a2ca762.js" crossorigin="anonymous"></script>
+    <script src="/assets/admin/js/chart.js"></script>
+
     <title>Home CPanel</title>
 </head>
 

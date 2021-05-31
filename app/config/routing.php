@@ -6,6 +6,11 @@ App::get('/',false);
 App::get('/default/contactus', false);
 App::get('/default/detail/([\d]+)', true);
 App::get('/default/login', false);
+App::get('/default/blocked/([\S]+)', false);
+App::get('/default/blocked/([\S]+)/([\S]+)', false);
+
+
+
 
 
 //Client pages

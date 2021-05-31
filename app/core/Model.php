@@ -26,8 +26,6 @@ class Model {
         $crpytopassword = md5(sha1($saltpassword));
         return $crpytopassword;
     }
-
-
 }
 
 ?>

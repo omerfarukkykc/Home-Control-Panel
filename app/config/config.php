@@ -3,7 +3,7 @@
 define('APP_DIR', '../app');
 define('CORE', APP_DIR.'/core');
 define('CONFIG', APP_DIR.'/config');
-
+define('USER_IP', $_SERVER["REMOTE_ADDR"]);
 define("HOST", "localhost");
 define("USER", "root");
 define("PASS", "");
@@ -33,6 +33,7 @@ require_once CORE."/Model.php";
 require_once CORE."/Controller.php";
 require_once CORE."/View.php";
 require_once CORE."/App.php";
+require_once CORE."/Middleware.php";
 require_once CONFIG."/routing.php";
 require_once APP_DIR."/vendor/autoload.php";
 
