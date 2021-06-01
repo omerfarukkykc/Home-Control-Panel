@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/assets/client/css/main.css">
     <link rel="stylesheet" href="/assets/client/css/dashboard.css">
+    <script src="/assets/client/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/admin/js/chart.js"></script>
     <title>Home CPanel</title>
 </head>
 
@@ -18,7 +20,7 @@
         
     </div><!-- Wrapper div end -->
 
-    <script src="/assets/client/js/jquery-3.6.0.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="/assets/client/js/echarts.min.js"></script>

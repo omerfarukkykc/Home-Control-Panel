@@ -1,10 +1,15 @@
 <?php 
 class adminModel extends Model{
     public function dashboardModel(){
+        $data['userCountMonthly'][-1]=1;
         for($i=0;$i<12;$i++){
-            $this->db->where("MONTH(creationDate)",$i);
+            $this->db->where("MONTH(creationDate)",$i+1);
             $data['userCountMonthly'][$i] = count($this->db->get("users"));
+            if($data['userCountMonthly'][$i]<date("m")){
+                $data['netGainMonthly'][$i] = ($data['userCountMonthly'][$i]-$data['userCountMonthly'][$i-1])/(($data['userCountMonthly'][$i-1]==0)?1:$data['userCountMonthly'][$i-1])*"100";
+            }
         }
+        array_shift($data['userCountMonthly']);
         $data['userCount'] = count($this->db->get("users")); 
         return $data;
     }

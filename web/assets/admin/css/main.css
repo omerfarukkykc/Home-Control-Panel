@@ -305,3 +305,7 @@ option {
     color: black;
     font-size: 30px;
 }
+
+.sidebar-deactive .cards-2 {
+    height: 450px!important;
+}
