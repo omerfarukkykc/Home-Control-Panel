@@ -138,7 +138,7 @@
     let getDevice = function() {
          $("#devicesTable").html("");
          $.ajax({
-            url: "/admin/getdevices",
+            url: "/client/getdevices",
             type: "POST",
             dataType: 'json',
             data: {
@@ -169,7 +169,7 @@
           
           $("#socketsTable").html("");
           $.ajax({
-             url: "/admin/getsockets",
+             url: "/client/getsockets",
              type: "POST",
              dataType: 'json',
              data: {

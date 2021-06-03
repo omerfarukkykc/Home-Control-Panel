@@ -6,20 +6,24 @@
         </div>
 
             <div class="block">
-                <div class="cards-3">
+                <div onclick="alarmAction(<?=$data['general']['user_id']?>)" class="cards-3">
                     <div>
                         
                         <p>Alarm sistemi</p>
                     </div>
                     <div>
-                        <?php if($data['general']['alarm']=="Activated"):?>
-                            <i style="color: green;" class="fas fa-home fa-12x"></i>
+                        <?php if($data['general']['alarm']):?>
+                            <i id="alarm<?=$data['general']['user_id']?>" style="color: rgb(0 177 5);" class="fas fa-home fa-12x"></i>
                         <?php else:?>
-                            <i style="color: red;" class="fas fa-home fa-12x"></i>
+                            <i id="alarm<?=$data['general']['user_id']?>" style="color: #cc3e3e;" class="fas fa-home fa-12x"></i>
                         <?php endif;?>
                     </div>
-                    <div class="text-color">
-                        <?php echo $data['general']['alarm']?>
+                    <div id="alarmtext<?=$data['general']['user_id']?>" class="text-color">
+                        <?php if($data['general']['alarm']):?>
+                            Activated
+                        <?php else:?>
+                            Deactivated
+                        <?php endif;?>
                     </div>
                 </div>
                 <div class="cards-3">
@@ -101,7 +105,65 @@
 
                 </div>
                 <div class="cards-2">
-                    
+                    <div>
+                        <p>Güç seçenekleri</p>
+                    </div>
+                    <div>
+                        <button value="1" id="mod1" class="mods-button">Tasarruf Modu</button>
+                        <button value="2" id="mod2" class="mods-button">Konfor Modu</button>
+
+                    </div>
+                    <div>
+                        <button value="3" id="mod3" class="mods-button">Yaz Modu</button>
+                        <button value="4" id="mod4" class="mods-button">Kış Modu</button>
+                    </div>
                 </div>
             </div>
         </div><!-- Content div end  -->
+<script>
+    $( document ).ready(function() {
+        modInit()
+    });
+    $('.mods-button').click(function(){
+        $('.mods-button').removeClass("mods-selected")
+        $(this).addClass("mods-selected")
+        $.ajax({
+            type: "POST",
+            url: "/client/modselect",
+            data: {
+                "mod":$(this).val(),
+                "general_id": <?=$data['general']['ID']?>
+            },
+            dataType: 'json',
+            success: function(res){
+                $('#setWater').text(res.set_water_tem)
+                $('#setTempature').text(res.set_house_tem)
+            }
+        });
+    })
+    function modInit(){
+        let mod = <?=$data['general']['mod']?>;
+        $('#mod'+mod).addClass("mods-selected")
+    }
+    function alarmAction(id){
+        $.ajax({
+             url: "/client/alarmpower",
+             type: "POST",
+             dataType: 'json',
+             data: {
+                "user_id": id
+             },
+             success: function(res) {
+               
+                if(res==1){
+                    $('#alarm'+id).css("color","rgb(0 177 5)")
+                    $('#alarmtext'+id).html("Activated")
+                }else{
+
+                    $('#alarm'+id).css("color","#cc3e3e")
+                    $('#alarmtext'+id).html("Deactivated")
+                }
+             },
+          });
+    }
+</script>

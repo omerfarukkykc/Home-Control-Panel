@@ -56,12 +56,29 @@ class clientController extends Controller implements FrontController{
         $param = $clientModel->lightpowerModel();
         return $param;
     }
+    public function modselectAction(){
+        $clientModel = new clientModel();
+        return $clientModel->modSelectModel();
+    }
+    public function getsocketsAction(){
+        $adminModel = new adminModel();
+        echo $adminModel->getSocketsModel();
+    }
+    public function getdevicesAction(){
+        $adminModel = new adminModel();
+        echo $adminModel->getDevicesModel();
+    }
     public function roomsAction()
     {
         $clientModel = new clientModel();
         $param = $clientModel->roomModel();
         $this->RenderLayout("client","client","rooms",$param);
     }
+    public function alarmpowerAction(){
+        $clientModel = new clientModel();
+        return $clientModel->alarmPowerModel();
+    }
+    
     
     
     

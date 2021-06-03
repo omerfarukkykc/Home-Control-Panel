@@ -21,7 +21,6 @@ class clientModel extends Model {
     public function dashboardModel(){
         $this->db->where("user_id",$_SESSION['user']['ID']);
         $this->data['general'] = $this->db->getOne("user_general");
-        
         return $this->data;
     }
     public function notificationModel(){
@@ -123,6 +122,31 @@ class clientModel extends Model {
         $this->db->where("ID",$_POST['room_id']);
         $this->db->update("rooms",$stat);
         return  $stat['lampStatus'];
+    }
+    public function modSelectModel(){
+        if(!isset($_POST['general_id'])||!isset($_POST['mod'])){
+            return null;
+        }
+        
+        $this->db->where("ID",$_POST['mod']);
+        $data = $this->db->getOne("mods");
+        unset($data['mod_name']);
+        unset($data['ID']);
+        $data['mod'] = $_POST['mod'];
+        $this->db->where("ID",$_POST['general_id']);
+        $this->db->update("user_general",$data);
+        return json_encode($data);
+    }
+    public function alarmPowerModel(){
+        if(!isset($_POST['user_id'])){
+            return null;
+        }
+        $this->db->where("user_id",$_POST['user_id']);
+        $stat = $this->db->getOne("user_general");
+        ($stat['alarm']==0) ? $stat['alarm']=1 :$stat['alarm']=0;
+        $this->db->where("user_id",$_POST['user_id']);
+        $this->db->update("user_general",$stat);
+        return $stat['alarm'];
     }
     
 }

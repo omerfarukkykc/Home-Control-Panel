@@ -6,7 +6,6 @@
     $roomsPowerChartLabel = json_encode($roomsPowerChartLabel);
     $roomsPowerChartData = json_encode($roomsPowerChartData);
     
-
     $dailyPowerChartLabel =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
     $dailyPowerChartData = $data['socket_data'];
     $dailyPowerChartName = "Günlük güç tüketimi -Watt";
@@ -14,14 +13,14 @@
     $dailyPowerChartLabel = json_encode($dailyPowerChartLabel);
     $dailyPowerChartData = json_encode($dailyPowerChartData);
     
-    $monthlyBillChartLabel =[1,2,3,4,5,6,7,8,9,10,11,12];
+    $monthlyBillChartLabel = [1,2,3,4,5,6,7,8,9,10,11,12];
     $monthlyBillChartData = $data['socket_data'];
     $monthlyBillChartName = "Aylık fatura grafiği";
     $monthlyBillChartName = json_encode($monthlyBillChartName);
     $monthlyBillChartLabel = json_encode($monthlyBillChartLabel);
     $monthlyBillChartData = json_encode($monthlyBillChartData);
     
-    $monthlyPowerChartLabel =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
+    $monthlyPowerChartLabel = [1,2,3,4,5,6,7,8,9,10,11,12];
     $monthlyPowerChartData = $data['socket_data'];
     $monthlyPowerChartName = "Aylık güç tüketim grafiği";
     $monthlyPowerChartName = json_encode($monthlyPowerChartName);
@@ -177,7 +176,7 @@
     }
     };
     const monthlyPowerData = {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: <?=$monthlyPowerChartLabel?>,
         datasets: [{
@@ -210,7 +209,9 @@
             y: {
                 beginAtZero: true
             }
-        }
+        },
+        indexAxis: 'y',
+  
     }
     };
     var roomsPowerChart = new Chart($('#roomsPowerChart'), roomsPowerData);

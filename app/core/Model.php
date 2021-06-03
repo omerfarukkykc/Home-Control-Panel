@@ -6,8 +6,10 @@ class Model {
     public function __construct()
     {
         $this->db = new MysqliDb (HOST, USER, PASS, DBNAME);
-        $this->db->where("user_id",$_SESSION['user']['user_id']);
-        $this->data['sidebar']['rooms'] = $this->db->get("rooms");
+        if(isset($_SESSION['user'])){
+            $this->db->where("user_id",$_SESSION['user']['ID']);
+            $this->data['sidebar']['rooms'] = $this->db->get("rooms");
+        }
     }
     public function __destruct()
     {

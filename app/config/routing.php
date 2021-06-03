@@ -18,7 +18,6 @@ App::get('/default/blocked', false);
 
 
 
-
 //Client pages
 
 App::get('/client/login', false);
@@ -28,11 +27,17 @@ App::get('/client/statistics', true);
 App::get('/client/notification', true);
 App::get('/client/rooms', true);
 
+App::post('/client/login', false);
 App::post('/client/room', true);
 App::post('/client/centigrade',true);
 App::post('/client/socketpower', true);
 App::post('/client/lightpower', true);
-App::post('/client/login', false);
+App::post('/client/modselect', true);
+App::post('/client/getsockets', true);
+App::post('/client/addsocket', true);
+App::post('/client/alarmpower', true);
+
+
 
 
 

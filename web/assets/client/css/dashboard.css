@@ -134,5 +134,18 @@ p {
     padding: 2px;
 }
 
+.mods-button {
+    height: 150px;
+    width: 300px;
+    color: black;
+    font-size: 22px;
+    margin: 5px;
+}
+
+.mods-selected {
+    background-color: #6060e6;
+    color: #ececec;
+}
+
 
 /*CONTENT END CONTENT END CONTENT END CONTENT END CONTENT END CONTENT END CONTENT END CONTENT END*/
