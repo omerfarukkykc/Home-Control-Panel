@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/assets/client/css/main.css">
     <link rel="stylesheet" href="/assets/client/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/admin/css/main.css">
+
     <script src="/assets/client/js/jquery-3.6.0.min.js"></script>
     <script src="/assets/admin/js/chart.js"></script>
     <title>Home CPanel</title>
@@ -14,7 +16,7 @@
 <body>
     <div id="wrap" class="sidebar-active">
         <!-- Wrap div start -->
-        <?=View::renderView("client","sidebar")?>
+        <?=View::renderView("client","sidebar",$data['sidebar'])?>
         <?=View::renderView("client","header")?>
         <?=$data['VIEW']?>
         

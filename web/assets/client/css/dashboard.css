@@ -16,14 +16,14 @@ p {
 
 .content .block .title {
     text-align: center;
-    font-size: 40px;
+    font-size: 25px;
 }
 
 .content .block {
     display: block;
     overflow: hidden;
     text-align: center;
-    margin: 5px;
+    margin-bottom: 5px;
 }
 
 .content .block h1 {
@@ -42,8 +42,8 @@ p {
 .content .block .cards-3 {
     background-color: #f5f5f7cc;
     padding: 10px;
-    display: inline-block;
-    width: 32%;
+    float: left;
+    width: calc((100% - 15px * 2) / 3);
     margin: 5px;
     border-radius: 2px;
     height: 357px;
@@ -65,35 +65,28 @@ p {
     color: black;
 }
 
-.content .block .cards-3:first-child {
-    margin-left: 0px;
-    float: left;
-}
-
-.content .block .cards-3:last-child {
-    margin-right: 0px;
-    float: right;
+.cards-2 .cards-2 {
+    background-color: rgba(255, 255, 255, 0)!important;
+    padding: 10px;
+    display: inline-block;
+    width: 32%;
+    margin: 5px;
+    border-radius: 2px;
+    height: 357px;
+    line-height: 70px;
+    cursor: pointer;
+    color: black;
 }
 
 .content .block .cards-2 {
     background-color: #f5f5f7cc;
     padding: 10px;
-    display: inline-block;
+    float: left;
     height: 390px;
     line-height: 25px;
-    width: 49%;
-    margin: 5px;
+    width: calc((100% - 12px * 2) / 2);
     border-radius: 2px;
-}
-
-.content .block .cards-2:first-child {
-    margin-left: 0px;
-    float: left;
-}
-
-.content .block .cards-2:last-child {
-    margin-right: 0px;
-    float: right;
+    margin: 5px;
 }
 
 .content .block .cards-3 .png {

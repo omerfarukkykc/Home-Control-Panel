@@ -27,10 +27,14 @@ App::get('/client/dashboard', true);
 App::get('/client/statistics', true);
 App::get('/client/notification', true);
 App::get('/client/rooms', true);
-App::get('/client/room', true);
 
+App::post('/client/room', true);
 App::post('/client/centigrade',true);
+App::post('/client/socketpower', true);
+App::post('/client/lightpower', true);
 App::post('/client/login', false);
+
+
 
 
 

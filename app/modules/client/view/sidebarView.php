@@ -1,4 +1,6 @@
+
 <div class="sidebar">
+
             <!-- Sidebar div start -->
             <div class="sidebar-header">
                 <a href="dashboard.php"><strong>Home CPanel</strong></a>
@@ -16,28 +18,20 @@
                         </a>
                     </li>
                     <li>
-                        <div class="link option"><i class="fa fa-home"></i>Rooms<i class="fa fa-chevron-down"></i></div>
+                        <div class="link option"><i class="fas fa-door-closed"></i>Rooms<i class="fa fa-chevron-down"></i></div>
                         <ul class="submenu " style="display: none;">
+                        
+                        <?php foreach($data['rooms'] as $value):?>
                             <li>
-                                <a href="/client/room">
-                                    <div class="sub-option ml-25">Living room</div>
-                                </a>
+                                <form action="/client/room" method="POST">
+                                    <input style="display:none;" name="room_id" value="<?= $value['ID']?>" type="number">
+                                    <button style="width: 100%; text-align:left;" class="reset-button" type="submit">
+                                        <div class="sub-option ml-25"><?= $value['roomName']?></div>
+                                    </button>
+                                </form>
                             </li>
-                            <li>
-                                <a href="/client/room">
-                                    <div class="sub-option ml-25">Study room</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/client/room">
-                                    <div class="sub-option ml-25">Bathroom</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/client/room">
-                                    <div class="sub-option ml-25">Kitchen</div>
-                                </a>
-                            </li>
+                        <?php endforeach;?>
+                        
                         </ul>
                     </li>
 

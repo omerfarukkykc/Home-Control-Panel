@@ -5,7 +5,6 @@ class clientController extends Controller implements FrontController{
     {   $clientModel = new clientModel();
         if(isset($_SESSION['user'])){
             Controller::redirect("/client/dashboard");
-
         }
         $clientModel->loginModel();
         $param = null;
@@ -19,40 +18,51 @@ class clientController extends Controller implements FrontController{
     public function dashboardAction($param = null)
     {   
         $clientModel = new clientModel();
-        $param['general']= $clientModel->dashboardModel();
+        $param = $clientModel->dashboardModel();
         $this->RenderLayout("client","client","dashboard",$param);
     }
     public function centigradeAction(){
         $clientModel = new clientModel();
-        echo $clientModel->centigradeModel();
+        return $clientModel->centigradeModel();
     }
-
-
-
     public function statisticsAction()
     {
 
-        $param = null;
+        $clientModel = new clientModel();
+        $param = $clientModel->statisticsModel();
         $this->RenderLayout("client","client","statistics",$param);
     }
     public function notificationAction()
     {
 
-        $param = null;
+        $clientModel = new clientModel();
+        $param = $clientModel->notificationModel();
         $this->RenderLayout("client","client","notification",$param);
     }
     public function roomAction()
     {
-
-        $param = null;
+        $clientModel = new clientModel();
+        $param = $clientModel->roomModel();
         $this->RenderLayout("client","client","room",$param);
+    }
+    public function socketpowerAction()
+    {
+        $clientModel = new clientModel();
+        $param = $clientModel->socketpowerModel();
+        return $param;
+    }
+    public function lightpowerAction(){
+        $clientModel = new clientModel();
+        $param = $clientModel->lightpowerModel();
+        return $param;
     }
     public function roomsAction()
     {
-
-        $param = null;
+        $clientModel = new clientModel();
+        $param = $clientModel->roomModel();
         $this->RenderLayout("client","client","rooms",$param);
     }
+    
     
     
 

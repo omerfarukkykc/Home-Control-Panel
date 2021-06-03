@@ -14,7 +14,7 @@ class Controller {
                     {
 
                         
-                        return call_user_func_array([$class, $action], array_values($params));
+                        echo call_user_func_array([$class, $action], array_values($params));
                     }
                     else
                     {

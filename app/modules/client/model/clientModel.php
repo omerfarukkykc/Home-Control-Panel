@@ -1,5 +1,9 @@
-<?php 
+<?php
+
+use function PHPSTORM_META\type;
+
 class clientModel extends Model {
+    
     public function loginModel(){
         if(!isset($_POST['username'])||!isset($_POST['password'])){
             return null;
@@ -16,7 +20,37 @@ class clientModel extends Model {
     }
     public function dashboardModel(){
         $this->db->where("user_id",$_SESSION['user']['ID']);
-        return $this->db->getOne("user_general");
+        $this->data['general'] = $this->db->getOne("user_general");
+        
+        return $this->data;
+    }
+    public function notificationModel(){
+        
+        return $this->data;
+    }
+    public function statisticsModel(){
+        $this->db->join("rooms","users.ID=rooms.user_id");
+        $this->db->join("room_sockets","rooms.ID=room_sockets.room_id","LEFT");
+        $this->db->join("socket_powers","room_sockets.ID=socket_powers.socket_id","LEFT");
+        $this->db->where("DAY(date)",date("d"));
+        $this->db->where("user_id",$_SESSION['user']['ID']);
+        $this->data['socket_power'] = $this->db->get("users");
+        foreach($this->data['socket_power'] as $value){
+            $time = explode(":",$value['time']);
+            if(!isset($this->data['socket_data'][$time[0]])){
+                $this->data['socket_data'][ceil($time[0])] = null;
+            }
+            $this->data['socket_data'][ceil($time[0])] += $value['power'];
+        }
+        if(!isset($this->data['socket_data'])){
+            for($i=0;$i<24;$i++){
+                $this->data['socket_data'][$i]=0;
+            }
+        }
+        unset($this->data['socket_power']);
+        ksort($this->data['socket_data']);
+        
+        return $this->data;
     }
     public function centigradeModel(){
         if(!isset($_POST['key'])||!isset($_POST['value'])){
@@ -37,6 +71,58 @@ class clientModel extends Model {
         }else{
             return null;
         }
+    }
+    public function roomModel(){
+        if(!isset($_POST['room_id'])){
+            return null;
+        }
+        $this->db->where("ID",$_POST['room_id']);
+        //$this->db->join("room_sockets","room_sockets.room_id=rooms.ID","LEFT");
+        $this->data['room_info'] = $this->db->getOne("rooms");
+        $this->db->where("room_id",$_POST['room_id']);
+        $this->db->join("room_sockets","room_sockets.room_id=rooms.ID","LEFT");
+        $this->db->join("socket_powers","room_sockets.ID=socket_powers.socket_id","LEFT");
+        $this->db->where("DAY(date)",date("d"));
+        $this->data['room_powers'] = $this->db->get("rooms");
+        foreach($this->data['room_powers'] as $value){
+            $time = explode(":",$value['time']);
+            
+            if(!isset($this->data['room_powers'][$time[0]])){
+                $this->data['sockets_data'][ceil($time[0])] = null;
+            }
+            $this->data['sockets_data'][ceil($time[0])] += $value['power'];
+        }
+        if(!isset($this->data['sockets_data'])){
+            for($i=0;$i<24;$i++){
+                $this->data['sockets_data'][$i]=0;
+            }
+        }
+        unset($this->data['room_powers']);
+        ksort($this->data['sockets_data']);
+        return $this->data;
+    }
+    public function socketpowerModel(){
+        if(!isset($_POST['socket_id'])){
+            return null;
+        }
+        $this->db->where("ID",$_POST['socket_id']);
+        $stat = $this->db->getOne("room_sockets");
+        ($stat['status']==0) ? $stat['status']=1 :$stat['status']=0;
+        $this->db->where("ID",$_POST['socket_id']);
+        $this->db->update("room_sockets",$stat);
+        
+        return  $stat['status'];
+    }
+    public function lightpowerModel(){
+        if(!isset($_POST['room_id'])){
+            return null;
+        }
+        $this->db->where("ID",$_POST['room_id']);
+        $stat = $this->db->getOne("rooms");
+        ($stat['lampStatus']==0) ? $stat['lampStatus']=1 :$stat['lampStatus']=0;
+        $this->db->where("ID",$_POST['room_id']);
+        $this->db->update("rooms",$stat);
+        return  $stat['lampStatus'];
     }
     
 }

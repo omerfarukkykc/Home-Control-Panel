@@ -2,9 +2,12 @@
 
 class Model {
     public $db;
+    protected $data;
     public function __construct()
     {
         $this->db = new MysqliDb (HOST, USER, PASS, DBNAME);
+        $this->db->where("user_id",$_SESSION['user']['user_id']);
+        $this->data['sidebar']['rooms'] = $this->db->get("rooms");
     }
     public function __destruct()
     {
