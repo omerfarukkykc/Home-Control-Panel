@@ -10,10 +10,12 @@
 
     <script src="/assets/client/js/jquery-3.6.0.min.js"></script>
     <script src="/assets/admin/js/chart.js"></script>
+    <script src="/assets/client/js/cookie.js"></script>
+
     <title>Home CPanel</title>
 </head>
 
-<body>
+<body >
     <div id="wrap" class="sidebar-active">
         <!-- Wrap div start -->
         <?=View::renderView("client","sidebar",$data['sidebar'])?>

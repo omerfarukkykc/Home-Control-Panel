@@ -71,14 +71,14 @@ class clientModel extends Model {
             return null;
         }
     }
-    public function roomModel(){
-        if(!isset($_POST['room_id'])){
+    public function roomModel($room_id){
+        if(!isset($room_id)){
             return null;
         }
-        $this->db->where("ID",$_POST['room_id']);
+        $this->db->where("ID",$room_id);
         //$this->db->join("room_sockets","room_sockets.room_id=rooms.ID","LEFT");
         $this->data['room_info'] = $this->db->getOne("rooms");
-        $this->db->where("room_id",$_POST['room_id']);
+        $this->db->where("room_id",$room_id);
         $this->db->join("room_sockets","room_sockets.room_id=rooms.ID","LEFT");
         $this->db->join("socket_powers","room_sockets.ID=socket_powers.socket_id","LEFT");
         $this->db->where("DAY(date)",date("d"));

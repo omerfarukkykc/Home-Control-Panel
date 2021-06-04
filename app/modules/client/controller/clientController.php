@@ -39,10 +39,10 @@ class clientController extends Controller implements FrontController{
         $param = $clientModel->notificationModel();
         $this->RenderLayout("client","client","notification",$param);
     }
-    public function roomAction()
+    public function roomAction($room_id)
     {
         $clientModel = new clientModel();
-        $param = $clientModel->roomModel();
+        $param = $clientModel->roomModel($room_id);
         $this->RenderLayout("client","client","room",$param);
     }
     public function socketpowerAction()
@@ -68,15 +68,16 @@ class clientController extends Controller implements FrontController{
         $adminModel = new adminModel();
         echo $adminModel->getDevicesModel();
     }
-    public function roomsAction()
+    public function roomsAction($room_id)
     {
         $clientModel = new clientModel();
-        $param = $clientModel->roomModel();
+        $param = $clientModel->roomModel($room_id);
         $this->RenderLayout("client","client","rooms",$param);
     }
     public function alarmpowerAction(){
         $clientModel = new clientModel();
         return $clientModel->alarmPowerModel();
+    
     }
     
     

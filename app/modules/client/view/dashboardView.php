@@ -109,13 +109,13 @@
                         <p>Güç seçenekleri</p>
                     </div>
                     <div>
-                        <button value="1" id="mod1" class="mods-button">Tasarruf Modu</button>
-                        <button value="2" id="mod2" class="mods-button">Konfor Modu</button>
+                        <button value="1" id="mod1" class="reset-button mods-button">Tasarruf Modu</button>
+                        <button value="2" id="mod2" class="reset-button mods-button">Konfor Modu</button>
 
                     </div>
                     <div>
-                        <button value="3" id="mod3" class="mods-button">Yaz Modu</button>
-                        <button value="4" id="mod4" class="mods-button">Kış Modu</button>
+                        <button value="3" id="mod3" class="reset-button mods-button">Yaz Modu</button>
+                        <button value="4" id="mod4" class="reset-button mods-button">Kış Modu</button>
                     </div>
                 </div>
             </div>

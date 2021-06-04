@@ -24,6 +24,10 @@ $('.menu-link-wrapper').on('click.mobileNav', function() {
         $('#wrap').removeClass('sidebar-deactive')
 
     }
+    Toast.fire({
+        icon: 'success',
+        title: 'Clicked Succesfuly'
+    })
 });
 
 
@@ -72,61 +76,8 @@ window.onresize = function(event) {
 
     }
     /*Accordion Menu mein*/
-$('.option').click(function() {
-    Toast.fire({
-        icon: 'success',
-        title: 'Clicked Succesfuly'
-    })
-    if ($(this).hasClass('link')) {
 
-        if ($(this).next('ul').hasClass('open')) {
-            $(this).next('ul').removeClass('open').slideUp()
-            $(this).removeClass('open')
-        } else {
-            $('.option').each(function(index, element) {
-                $(element).removeClass('open')
-                $('.link').next('ul').removeClass('open').slideUp()
-            })
-            $(this).addClass('open')
-            $(this).next('ul').addClass('open').slideDown()
-            $('.sub-option').each(function(index, element) {
-                $(element).removeClass('open')
-            })
-        }
-    } else {
-        $('.option').each(function(index, element) {
-            $(element).removeClass('open')
-            if ($(element).hasClass('link')) {
-                $('.link').next('ul').removeClass('open').slideUp()
 
-                $('.sub-option').each(function(index, element) {
-                    $(element).removeClass('open')
-                })
-            }
-        })
-        $(this).toggleClass('open')
-    }
-})
-$('.sub-option').click(function() {
-        Toast.fire({
-            icon: 'success',
-            title: 'Clicked Sucsesfuly'
-        })
-        $('.sub-option').each(function(index, element) {
-            $(element).removeClass('open')
-        })
-
-        $(this).toggleClass('open')
-
-    })
-    /*Javascript kodları*/
-
-$(".clicked-test").click(function() {
-    Toast.fire({
-        icon: 'success',
-        title: 'Clicked Sucsesfuly'
-    })
-});
 
 function changeValue(key, value) {
     $.ajax({
