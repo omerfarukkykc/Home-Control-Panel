@@ -1,22 +1,21 @@
 <?php
 
 class Middleware {
-    public static function middlewareChecker($module,$middleware,$action){
+    public static function middlewareChecker($module,$middleware,$action,$params ){
         if($action!="blockedAction"){
             self::log_ip_checker();
         }
         self::log_ip_saver($module,$action);
         if(file_exists($file = APP_DIR."/modules/{$module}/middleware/{$middleware}.php"))
         {
-            require_once $file;
-
+             require_once $file;
             if(class_exists($middleware))
             {
                 $class = new $middleware;
 
                 if(method_exists($class, $action))
                 {   
-                    $result = call_user_func([$class, $action]);
+                    $result = call_user_func_array([$class, $action], array_values($params));
                     if(gettype($result) == "boolean"){
 
                         return $result;

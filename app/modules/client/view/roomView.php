@@ -51,9 +51,9 @@
                 </div>
                 <div id="textlight<?=$data['room_info']['ID']?>" class="text-color" id="hum">
                     <?php if($data['room_info']['lampStatus']):?>
-                        On
+                        Açık
                     <?php else:?>
-                        Off
+                        Kapalı
                     <?php endif;?>
                 </div> 
             </div>
@@ -65,13 +65,13 @@
     <div class="block">
         <div class="cards-2">
             
-            <div class="title"><b>Sockets</b></div>
+            <div class="title"><b>Prizler</b></div>
             <table style="width: 100%;" id="table">
                 <thead>
                     <tr>
-                        <th>Socket name</th>
-                        <th style="text-align: center;">Status</th>
-                        <th style="text-align: center;">Action</th>
+                        <th>Priz adı</th>
+                        <th style="text-align: center;">Durum</th>
+                        <th style="text-align: center;">Eylem</th>
                     </tr>
                 </thead>
                 <tbody id="socketsTable">
@@ -80,13 +80,13 @@
         </div>
         <div class="cards-2">
             
-            <div class="title"><b>Devices</b></div>
+            <div class="title"><b>Aygıtlar</b></div>
             <table style="width: 100%;" id="table">
                 <thead>
                     <tr>
                         <th>Device Name</th>
-                        <th style="text-align: center;">Value</th>
-                        <th style="text-align: center;">Action</th>
+                        <th style="text-align: center;">Değer</th>
+                        <th style="text-align: center;">Eylem</th>
                     </tr>
                 </thead>
                 <tbody id="devicesTable">

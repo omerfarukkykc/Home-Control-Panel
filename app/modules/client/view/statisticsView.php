@@ -1,30 +1,26 @@
 <?php
-    $roomsPowerChartLabel =["Mutfak","Banyo","Salon","Oturma odası"];
-    $roomsPowerChartData = [0,1,2,3,4,5,6];
+    $roomsPowerChartLabel =$data['rooms'];
+    $roomsPowerChartData = $data['roomsPower'];
     $roomsPowerChartName = "Odaların enerji tüketim grafiği";
     $roomsPowerChartName = json_encode($roomsPowerChartName);
     $roomsPowerChartLabel = json_encode($roomsPowerChartLabel);
     $roomsPowerChartData = json_encode($roomsPowerChartData);
     
     $dailyPowerChartLabel =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
-    $dailyPowerChartData = $data['socket_data'];
-    $dailyPowerChartName = "Günlük güç tüketimi -Watt";
+    $dailyPowerChartData = $data['sum_socket_data'];
+    $dailyPowerChartName = "Günlük güç tüketimi -W";
     $dailyPowerChartName = json_encode($dailyPowerChartName);
     $dailyPowerChartLabel = json_encode($dailyPowerChartLabel);
     $dailyPowerChartData = json_encode($dailyPowerChartData);
     
-    $monthlyBillChartLabel = [1,2,3,4,5,6,7,8,9,10,11,12];
-    $monthlyBillChartData = $data['socket_data'];
-    $monthlyBillChartName = "Aylık fatura grafiği";
+    $monthlyBillChartData = $data['monthly_bills'];
+    $monthlyBillChartName = "Aylık fatura grafiği -₺";
     $monthlyBillChartName = json_encode($monthlyBillChartName);
-    $monthlyBillChartLabel = json_encode($monthlyBillChartLabel);
     $monthlyBillChartData = json_encode($monthlyBillChartData);
     
-    $monthlyPowerChartLabel = [1,2,3,4,5,6,7,8,9,10,11,12];
-    $monthlyPowerChartData = $data['socket_data'];
-    $monthlyPowerChartName = "Aylık güç tüketim grafiği";
+    $monthlyPowerChartData = $data['monthly_kW'];
+    $monthlyPowerChartName = "Aylık güç tüketim grafiği -kW";
     $monthlyPowerChartName = json_encode($monthlyPowerChartName);
-    $monthlyPowerChartLabel = json_encode($monthlyPowerChartLabel);
     $monthlyPowerChartData = json_encode($monthlyPowerChartData);
 
 ?>
@@ -35,7 +31,7 @@
     <div class="block">
         <div class="cards-2">
         <div class="cards-2">
-            <canvas id="roomsPowerChart"></canvas>
+            <canvas style="height: 200px;" id="roomsPowerChart"></canvas>
         </div>
         <div style="line-height: 100px; " class="cards-2 ">
             <div>
@@ -43,9 +39,9 @@
                 <h2 style="color: black;">Elektrik Faturası</h2>
             </div>
             <div>
-                <p>Tahmini tutar 67.7 tl</p>
+                <p><?=round($data['sumWatt']/1000,2)?> kW Elektrik harcanmıştır</p>
+                <p>Tahmini tutar:  <b style="font-size:30px; color: brown;"><?=round((floatval($data['sumWatt'])/1000)*0.3967,2)?></b> ₺</p>
             </div>
-            
         </div>
         </div>
         
@@ -95,7 +91,11 @@
             tension: 0.3,
             hoverOffset: 10
             
-        }]
+        }],
+        options: {  
+            responsive: true,
+            maintainAspectRatio: false
+        }
     },
     
 
@@ -141,7 +141,6 @@
     const monthlyBillData = {
     type: 'bar',
     data: {
-        labels: <?=$monthlyBillChartLabel?>,
         datasets: [{
             label: <?=$monthlyBillChartName?>,
             data: <?=$monthlyBillChartData?>,
@@ -178,7 +177,6 @@
     const monthlyPowerData = {
     type: 'bar',
     data: {
-        labels: <?=$monthlyPowerChartLabel?>,
         datasets: [{
             label: <?=$monthlyPowerChartName?>,
             data: <?=$monthlyPowerChartData?>,
@@ -210,8 +208,6 @@
                 beginAtZero: true
             }
         },
-        indexAxis: 'y',
-  
     }
     };
     var roomsPowerChart = new Chart($('#roomsPowerChart'), roomsPowerData);

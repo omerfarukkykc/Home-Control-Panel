@@ -83,8 +83,7 @@ class App {
                     }
                     
                 }
-
-                if(Middleware::middlewareChecker($module,$middleware,$action)){
+                if(Middleware::middlewareChecker($module,$middleware,$action,$params)){
                     Controller::startAction($module,$controller,$action,$params);
                     exit;
                 }else{

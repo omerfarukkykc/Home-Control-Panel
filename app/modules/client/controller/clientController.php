@@ -31,6 +31,10 @@ class clientController extends Controller implements FrontController{
         $clientModel = new clientModel();
         $param = $clientModel->statisticsModel();
         $this->RenderLayout("client","client","statistics",$param);
+
+
+
+        
     }
     public function notificationAction()
     {
@@ -79,9 +83,5 @@ class clientController extends Controller implements FrontController{
         return $clientModel->alarmPowerModel();
     
     }
-    
-    
-    
-    
 
 }

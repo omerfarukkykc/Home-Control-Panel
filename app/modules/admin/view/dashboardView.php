@@ -25,6 +25,7 @@
         <div class="cards-2">
             <canvas id="gainChart"></canvas>
         </div>
+    </div>
     <div class="block">
         <div style="line-height:120px; " class="cards-3">
             <div class="indicator">
