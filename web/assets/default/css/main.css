@@ -20,6 +20,11 @@ body,
 
 a {
     text-decoration: none;
+    color: #ececec;
+}
+
+b {
+    color: #ececec;
 }
 
 .navbar {
@@ -35,7 +40,7 @@ a {
 }
 
 .navbar .navbar-right {
-    float: right
+    float: right;
 }
 
 .navbar .navbar-left {
@@ -70,4 +75,23 @@ a {
 
 .contactus {
     background: #313132;
+}
+
+.promotion {
+    background-color: #ffffff;
+}
+
+.container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.left {
+    width: 40%;
+    float: left;
+}
+
+.right {
+    width: 60%;
+    float: right;
 }

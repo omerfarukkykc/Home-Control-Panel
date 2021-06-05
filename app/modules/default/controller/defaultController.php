@@ -5,9 +5,7 @@ class defaultController extends Controller implements FrontController {
     {
         $this->RenderLayout("default","default", "dashboard");
     }
-    public function contactusAction(){
-        $this->RenderLayout("default","default", "contactus");
-    }
+    
     public function blockedAction(){
         $defaultModel = new defaultModel();
         $data['ip'] = USER_IP;
