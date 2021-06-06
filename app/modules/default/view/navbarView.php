@@ -1,7 +1,12 @@
 <div class=" navbar">
-    <div class="navbar-left"><a href="/">Akıllı ev kontrol sistemleri</a></div>
-    <div class="navbar-right">
-        <div class="item"><a href="#contactus""><b>Contact us</b></a></div>
-        <div class="item"><a href="/client/login"><b>Sign in</b></a></div>
+    <div style="margin: 0;" class="row">
+        <div class="col-6 col-s-6 col-xs-6 col-xxs-10"><a href="/">Lepric Akıllı Ev</a></div>
+        <div class="col-6 col-s-6 col-xs-6 col-xxs-2">
+            <div class="item"><a href="#contactus"">Bize ulaşın</a></div>
+            <div class="item"><a href="/client/login">Giriş yap</a></div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
     </div>
 </div>

@@ -2,6 +2,7 @@
 * {
     color: #000000;
     font-family: "Ubuntu", sans-serif;
+    box-sizing: border-box;
 }
 
 html,
@@ -11,8 +12,6 @@ body,
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
     height: 100%;
     scroll-behavior: smooth;
     background-color: #f5f5f7cc;
@@ -27,10 +26,18 @@ b {
     color: #ececec;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    text-align: justify;
+}
+
 .navbar {
-    width: 60%;
-    height: 44px;
-    padding: 0px 20%;
+    z-index: 1;
+    width: 100%;
     line-height: 44px;
     position: fixed;
     display: block;
@@ -49,49 +56,418 @@ b {
 
 .navbar .item {
     margin: 0 7px;
-    display: inline-block;
+    float: right;
 }
 
 .navbar a:hover {
     color: white;
 }
 
+.navbar a {
+    display: block;
+}
+
 .content {
-    margin-top: 44px;
     height: 100%;
 }
 
 .content .page {
-    height: calc(100% - 104px);
-    width: 60%;
-    padding: 30px 20%;
+    width: 100%;
     display: block;
 }
 
 .footer {
+    width: 100%;
     height: 112px;
     background-color: #131200;
 }
 
-.contactus {
-    background: #313132;
-}
-
 .promotion {
+    margin-top: 44px;
     background-color: #ffffff;
 }
 
-.container {
-    overflow: hidden;
+.navbar a.icon {
+    display: none;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.row {
+    margin: 15px 0;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.navbar [class*="col-"] {
+    padding: 0;
+}
+
+
+/* For mobile phones: */
+
+[class*="col-"] {
     width: 100%;
 }
 
-.left {
-    width: 40%;
-    float: left;
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-xs-1 {
+        width: 8.33%;
+    }
+    .col-xs-2 {
+        width: 16.66%;
+    }
+    .col-xs-3 {
+        width: 25%;
+    }
+    .col-xs-4 {
+        width: 33.33%;
+    }
+    .col-xs-5 {
+        width: 41.66%;
+    }
+    .col-xs-6 {
+        width: 50%;
+    }
+    .col-xs-7 {
+        width: 58.33%;
+    }
+    .col-xs-8 {
+        width: 66.66%;
+    }
+    .col-xs-9 {
+        width: 75%;
+    }
+    .col-xs-10 {
+        width: 83.33%;
+    }
+    .col-xs-11 {
+        width: 91.66%;
+    }
+    .col-xs-12 {
+        width: 100%;
+    }
+    .row {
+        padding: 0px 5%;
+    }
 }
 
-.right {
-    width: 60%;
-    float: right;
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-s-1 {
+        width: 8.33%;
+    }
+    .col-s-2 {
+        width: 16.66%;
+    }
+    .col-s-3 {
+        width: 25%;
+    }
+    .col-s-4 {
+        width: 33.33%;
+    }
+    .col-s-5 {
+        width: 41.66%;
+    }
+    .col-s-6 {
+        width: 50%;
+    }
+    .col-s-7 {
+        width: 58.33%;
+    }
+    .col-s-8 {
+        width: 66.66%;
+    }
+    .col-s-9 {
+        width: 75%;
+    }
+    .col-s-10 {
+        width: 83.33%;
+    }
+    .col-s-11 {
+        width: 91.66%;
+    }
+    .col-s-12 {
+        width: 100%;
+    }
+    .row {
+        padding: 0px 10%;
+    }
+}
+
+@media only screen and (min-width: 1366px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+    .row {
+        padding: 0px 15%;
+    }
+}
+
+@media only screen and (min-width: 1750px) {
+    /* For desktop: */
+    .col-xl-1 {
+        width: 8.33%;
+    }
+    .col-xl-2 {
+        width: 16.66%;
+    }
+    .col-xl-3 {
+        width: 25%;
+    }
+    .col-xl-4 {
+        width: 33.33%;
+    }
+    .col-xl-5 {
+        width: 41.66%;
+    }
+    .col-xl-6 {
+        width: 50%;
+    }
+    .col-xl-7 {
+        width: 58.33%;
+    }
+    .col-xl-8 {
+        width: 66.66%;
+    }
+    .col-xl-9 {
+        width: 75%;
+    }
+    .col-xl-10 {
+        width: 83.33%;
+    }
+    .col-xl-11 {
+        width: 91.66%;
+    }
+    .col-xl-12 {
+        width: 100%;
+    }
+    .row {
+        padding: 0px 18%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .col-xxs-1 {
+        width: 8.33%;
+    }
+    .col-xxs-2 {
+        width: 16.66%;
+    }
+    .col-xxs-3 {
+        width: 25%;
+    }
+    .col-xxs-4 {
+        width: 33.33%;
+    }
+    .col-xxs-5 {
+        width: 41.66%;
+    }
+    .col-xxs-6 {
+        width: 50%;
+    }
+    .col-xxs-7 {
+        width: 58.33%;
+    }
+    .col-xxs-8 {
+        width: 66.66%;
+    }
+    .col-xxs-9 {
+        width: 75%;
+    }
+    .col-xxs-10 {
+        width: 83.33%;
+    }
+    .col-xxs-11 {
+        width: 91.66%;
+    }
+    .col-xxs-12 {
+        width: 100%;
+    }
+    .navbar .item a {
+        display: none;
+    }
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+    .row {
+        padding: 0px 3%;
+    }
+}
+
+.mySlides {
+    display: none
+}
+
+img {
+    vertical-align: middle;
+}
+
+
+/* Slideshow container */
+
+.slideshow-container {
+    position: relative;
+    margin: auto;
+    z-index: 0;
+}
+
+
+/* Next & previous buttons */
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+
+/* Position the "next button" to the right */
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Caption text */
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+
+/* The dots/bullets/indicators */
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+
+/* Fading animation */
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+/* On smaller screens, decrease text size */
+
+@media only screen and (max-width: 300px) {
+    .prev,
+    .next,
+    .text {
+        font-size: 11px
+    }
 }
