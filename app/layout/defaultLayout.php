@@ -16,6 +16,8 @@
 <div id="wrap" class="wrap">
 <?=View::renderView("default","navbar")?>
 <?=$data['VIEW']?>
+<?=View::renderView("default","footer")?>
+
 
     
 </div>

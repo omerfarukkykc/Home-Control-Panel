@@ -2,34 +2,34 @@
     <div class="page promotion">
     
         
-        <div class="row">
+        <div class="row slider">
         <div class="col-12">
             <div class="slideshow-container">
 
             <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
+                <div class="numbertext">1 / 6</div>
                 <img src="/assets/default/images/slide-1.jpg" style="width:100%">
             </div>
 
             <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
+                <div class="numbertext">2 / 6</div>
                 <img src="/assets/default/images/slide-2.jpg" style="width:100%">
             </div>
 
             <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
+                <div class="numbertext">3 / 6</div>
                 <img src="/assets/default/images/slide-3.jpg" style="width:100%">
             </div>
             <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
+                <div class="numbertext">4 / 6</div>
                 <img src="/assets/default/images/slide-4.jpg" style="width:100%">
             </div>
             <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
+                <div class="numbertext">5 / 6</div>
                 <img src="/assets/default/images/slide-5.jpg" style="width:100%">
             </div>
             <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
+                <div class="numbertext">6 / 6</div>
                 <img src="/assets/default/images/slide-6.jpg" style="width:100%">
             </div>
 
@@ -52,9 +52,6 @@
         </div>
         <h1 style="text-align:center;">Akıllı Ev Sistemleri Nedir?</h1>
         <div class="row">
-            <div style="text-align: center;"  class="col-6 col-s-12">
-               <img src="/assets/default/images/1.jpg" alt="Akıllı ev resmi" height="460px"> 
-            </div>
             <div class="col-6 col-s-12">
                 
                 <p>Akıllı Ev Sistemleri ile Teknolojinin Size Sağladığı Konforu Hissedin! </p>
@@ -78,6 +75,9 @@
 
                 </p>
             </div>
+            <div style="text-align: center;"  class="col-6 col-s-12">
+               <img src="/assets/default/images/1.jpg" alt="Akıllı ev resmi" height="460px"> 
+            </div>
         </div>
        
         <div class="row">
@@ -98,9 +98,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
-            <img src="/assets/default/images/2.jpg" alt="Akıllı ev resmi" > 
-            </div>
             <div class="col-6 ">
                 <h1>
                     Tasarruflu
@@ -112,6 +109,9 @@
                     birbirinden değerli fonksiyon ve faydaları ile tanışmanın simdi tam zamanı.
                 </p>
                 
+            </div>
+            <div class="col-6">
+            <img src="/assets/default/images/5.jpg" alt="Akıllı ev resmi" > 
             </div>
         </div>
         <div class="row">
@@ -133,9 +133,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
-            <img src="/assets/default/images/4.jpg" alt="Akıllı ev resmi" > 
-            </div>
             <div class="col-6 ">
                 <h1>
                     Uzaktan Kontrol
@@ -151,6 +148,10 @@
                 
                 
             </div>
+            <div class="col-6">
+            <img src="/assets/default/images/4.jpg" alt="Akıllı ev resmi" > 
+            </div>
+           
         </div>
        
     </div>
