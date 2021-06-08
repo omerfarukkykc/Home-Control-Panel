@@ -9,16 +9,16 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Mail address</th>
-                    <th>Address Line 1</th>
-                    <th>Address Line 2</th>
-                    <th>Phone number</th>
-                    <th>Username</th>
-                    <th>Creation date</th>
-                    <th>Rooms</th>
-                    <th>Edit</th>
+                    <th>Adı</th>
+                    <th>Soyadı</th>
+                    <th>Mail adresi</th>
+                    <th>Adres Satır 1</th>
+                    <th>Adres Satır 2</th>
+                    <th>Telefon numarası</th>
+                    <th>Kullanıcı adı</th>
+                    <th>Üyelik tarihi</th>
+                    <th>Oda sayısı</th>
+                    <th>Düzenle</th>
                 </tr>
             </thead>
             <tbody id="usersTableBody">
