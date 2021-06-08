@@ -1,5 +1,5 @@
 <div class="content">
-    <b style="float: left;font-size: 30px;" >Serach & Edit Users Menu</b>
+    <b style="float: left;font-size: 30px;" >Messages</b>
     <div class="background">
             
             <div class="search">
@@ -13,7 +13,7 @@
                     <th>Mail adresi</th>
                     <th>Telefon numarası</th>
                     <th>Başlık</th>
-                    <th>Mesaj</th>
+                    <th style="text-align:center;">Mesaj</th>
                 </tr>
             </thead>
             <tbody id="usersTableBody">
@@ -22,7 +22,12 @@
                 ?>
                 <?php foreach($data as $row):?>
                 <?php $index-=1;?>
-                    <tr>
+                    <?php if($row['read_receipt']==1):?>
+                        <tr style="background-color: #ffffff00;" >
+                    <?php else:?>
+                        <tr id="tr<?=$row['ID']?>" style="background-color: #00000067;">
+                    <?php endif;?>
+                    
                         <td><?=$index?></td>
                         <td><?=$row['name']?></td>
                         <td><?=$row['email']?></td>
@@ -39,7 +44,6 @@
                         <div class="xcontent">
                             <div class="satir">
                                 <label>Gönderen: <?=$row['name']?></label>
-                                
                             </div>
                             <div class="satir">
                                 <label>Mail: <?=$row['email']?></label>
@@ -54,8 +58,6 @@
                                 <label>Mesaj: <?=$row['text']?>:</label>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <?php endforeach;?>
@@ -68,7 +70,21 @@
     let openedmodal
     function openmodal(message_id){
         openedmodal = message_id
-      $('#messagemodal'+message_id).css("display","block") 
+      $('#messagemodal'+message_id).css("display","block")
+      $.ajax({
+             url: "/admin/read",
+             type: "POST",
+             dataType: 'json',
+             data: {
+                "message_id": message_id
+             },
+             success: function(res) {
+                if(res==1){
+                    $('#tr'+message_id).css("background-color","#ffffff00")
+                }
+             },
+             
+          });
     }
     function closemodal(message_id){
         openedmodal = message_id

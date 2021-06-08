@@ -138,6 +138,17 @@ class adminModel extends Model{
         $this->db->orderBy("ID","DESC");
         return $this->db->get("contact_messages");
     }
+    public function readModel(){
+        if(!isset($_POST['message_id'])){
+            return null;
+        }
+        $this->db->where("ID",$_POST['message_id']);
+        $data = $this->db->getOne("contact_messages");
+        $data['read_receipt'] = 1;
+        $this->db->where("ID",$_POST['message_id']);
+        $this->db->update("contact_messages",$data);
+        return $data['read_receipt'];
+    }
     // Room operation
     public function getroomsModel()
     {

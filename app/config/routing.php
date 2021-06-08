@@ -79,6 +79,9 @@
         App::post('/admin/deletesocket', true);
         App::post('/admin/saveroom', true);
     }
+    {
+        App::post('/admin/read',true);
+    }
 }
 
 
