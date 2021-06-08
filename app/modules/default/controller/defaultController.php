@@ -12,4 +12,11 @@ class defaultController extends Controller implements FrontController {
         $data['msg'] = $defaultModel->blockedAction(USER_IP)['msg'];
         $this->RenderLayout("login","default","blocked",$data);
     }
-}
+    public function contactusAction(){
+        $this->RenderLayout("default","default","contuctus");
+    }
+    public function setmessageAction(){
+        $defaultModel = new defaultModel();
+        return $defaultModel->setmessageAction();
+    }
+}   

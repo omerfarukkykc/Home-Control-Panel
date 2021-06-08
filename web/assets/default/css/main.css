@@ -14,7 +14,7 @@ body,
     font-size: 100%;
     height: 100%;
     scroll-behavior: smooth;
-    background-color: #f5f5f7cc;
+    background-color: #ffffff;
 }
 
 a {
@@ -61,7 +61,7 @@ p {
 }
 
 .navbar a:hover {
-    color: white;
+    color: rgba(255, 255, 255, 0.713);
 }
 
 .navbar a {
@@ -79,9 +79,9 @@ p {
     line-height: 30px;
 }
 
-.content {}
-
-.content .page {
+.content {
+    margin-top: 44px;
+    background-color: #ffffff;
     width: 100%;
     display: block;
 }
@@ -101,11 +101,6 @@ p {
 
 .footer .link-item a:hover {
     color: brown;
-}
-
-.promotion {
-    margin-top: 44px;
-    background-color: #ffffff;
 }
 
 .navbar a.icon {
@@ -136,6 +131,67 @@ p {
 
 [class*="col-"] {
     width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .col-xxs-1 {
+        width: 8.33%;
+    }
+    .col-xxs-2 {
+        width: 16.66%;
+    }
+    .col-xxs-3 {
+        width: 25%;
+    }
+    .col-xxs-4 {
+        width: 33.33%;
+    }
+    .col-xxs-5 {
+        width: 41.66%;
+    }
+    .col-xxs-6 {
+        width: 50%;
+    }
+    .col-xxs-7 {
+        width: 58.33%;
+    }
+    .col-xxs-8 {
+        width: 66.66%;
+    }
+    .col-xxs-9 {
+        width: 75%;
+    }
+    .col-xxs-10 {
+        width: 83.33%;
+    }
+    .col-xxs-11 {
+        width: 91.66%;
+    }
+    .col-xxs-12 {
+        width: 100%;
+    }
+    .navbar .item a {
+        display: none;
+    }
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+    .row {
+        padding: 0px 3%;
+    }
+    .row.slider {
+        padding: 0;
+    }
+    .row.slider .col-12 {
+        padding: 0;
+    }
+    .navbar.active .responsive {
+        display: block;
+    }
+    .navbar.active .row:first-child {
+        background-color: #00000052;
+    }
 }
 
 @media only screen and (min-width: 600px) {
@@ -313,67 +369,6 @@ p {
     }
 }
 
-@media screen and (max-width: 600px) {
-    .col-xxs-1 {
-        width: 8.33%;
-    }
-    .col-xxs-2 {
-        width: 16.66%;
-    }
-    .col-xxs-3 {
-        width: 25%;
-    }
-    .col-xxs-4 {
-        width: 33.33%;
-    }
-    .col-xxs-5 {
-        width: 41.66%;
-    }
-    .col-xxs-6 {
-        width: 50%;
-    }
-    .col-xxs-7 {
-        width: 58.33%;
-    }
-    .col-xxs-8 {
-        width: 66.66%;
-    }
-    .col-xxs-9 {
-        width: 75%;
-    }
-    .col-xxs-10 {
-        width: 83.33%;
-    }
-    .col-xxs-11 {
-        width: 91.66%;
-    }
-    .col-xxs-12 {
-        width: 100%;
-    }
-    .navbar .item a {
-        display: none;
-    }
-    .navbar a.icon {
-        float: right;
-        display: block;
-    }
-    .row {
-        padding: 0px 3%;
-    }
-    .row.slider {
-        padding: 0;
-    }
-    .row.slider .col-12 {
-        padding: 0;
-    }
-    .navbar.active .responsive {
-        display: block;
-    }
-    .navbar.active .row:first-child {
-        background-color: #00000052;
-    }
-}
-
 
 /* Slideshow container */
 
@@ -502,4 +497,87 @@ p {
     .slideshow-container .text {
         font-size: 11px
     }
+}
+
+.form-control {
+    border: none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea,
+.contact button[type="submit"] {
+    font: 500 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+.contact {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 100px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.contact h2 {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact input[type="tel"],
+.contact textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+}
+
+.contact input[type="text"]:hover,
+.contact input[type="email"]:hover,
+.contact textarea:hover {
+    -webkit-transition: border-color 0.4s ease-in-out;
+    -moz-transition: border-color 0.4s ease-in-out;
+    transition: border-color 0.4s ease-in-out;
+    border: 1px solid #aaa;
+}
+
+.contact textarea {
+    height: 120px;
+    max-width: 100%;
+    resize: none;
+}
+
+.contact button[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #86b9b9;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.contact button[type="submit"]:hover {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-transition: background 0.4s ease-in-out;
+    -moz-transition: background 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.contact button[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    outline: 0;
+    border: 1px solid #aaa;
 }

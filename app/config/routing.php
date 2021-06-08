@@ -11,6 +11,8 @@
         View::renderLayout("login","default","401");
     });
     App::get('/default/blocked', false);
+    App::get('/default/contactus', false);
+    App::post('/default/setmessage',false);
 }
 
 //Client pages

@@ -5,7 +5,7 @@
                 <div  class="col-6 col-s-6 col-xs-6">
                     <h3 style="color:#ececec;">Hızlı erişim</h3>
                     <div class="link-item"><a href="/client/login">Giriş yap</a></div>
-                    <div class="link-item"><a href="#contactus"">Bize ulaşın</a></div>
+                    <div class="link-item"><a href="/default/contactus"">Bize ulaşın</a></div>
                 </div>
             </div>
         </div>

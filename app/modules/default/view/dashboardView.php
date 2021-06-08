@@ -1,7 +1,4 @@
 <div class="content">
-    <div class="page promotion">
-    
-        
         <div class="row slider">
         <div class="col-12">
             <div class="slideshow-container">
@@ -154,7 +151,6 @@
            
         </div>
        
-    </div>
     
     
 </div>

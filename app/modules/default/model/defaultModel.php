@@ -20,6 +20,25 @@ class defaultModel extends Model {
         }
         return $data;
     }
+    public function setmessageAction(){
+        if
+        (
+            !isset($_POST['subject'])||
+            !isset($_POST['name'])||
+            !isset($_POST['phone'])||
+            !isset($_POST['email'])||
+            !isset($_POST['text'])
+        ){
+            return false;
+        }
+        $data['name'] = $_POST['name'];
+        $data['phone'] = $_POST['phone'];
+        $data['email'] = $_POST['email'];
+        $data['subject'] = $_POST['subject'];
+        $data['text'] = $_POST['text'];
+        echo $this->db->insert("contact_messages",$data);
+        return "Başarılı";
+    }
 }
 
 
