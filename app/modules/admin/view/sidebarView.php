@@ -4,7 +4,7 @@
 
     <!-- Sidebar div start -->
     <div class="sidebar-header">
-        <a href="dashboard.php"><strong>Home CPanel</strong></a>
+        <a href="/admin/dashboard"><strong>Home CPanel</strong></a>
     </div>
     <div class="sidebar-profile">
         <i style="color: #ececec;" class="fas fa-user fa-6x"></i>
