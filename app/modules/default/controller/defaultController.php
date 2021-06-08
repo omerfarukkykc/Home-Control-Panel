@@ -15,8 +15,11 @@ class defaultController extends Controller implements FrontController {
     public function contactusAction(){
         $this->RenderLayout("default","default","contuctus");
     }
-    public function setmessageAction(){
+    public function sendmessageAction(){
+        
         $defaultModel = new defaultModel();
-        return $defaultModel->setmessageAction();
+        $defaultModel->sendmessageAction();
+        $this->RenderLayout("default","default","sucmessage");
+
     }
 }   

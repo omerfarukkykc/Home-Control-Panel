@@ -20,7 +20,7 @@ class defaultModel extends Model {
         }
         return $data;
     }
-    public function setmessageAction(){
+    public function sendmessageAction(){
         if
         (
             !isset($_POST['subject'])||
@@ -36,7 +36,7 @@ class defaultModel extends Model {
         $data['email'] = $_POST['email'];
         $data['subject'] = $_POST['subject'];
         $data['text'] = $_POST['text'];
-        echo $this->db->insert("contact_messages",$data);
+        $this->db->insert("contact_messages",$data);
         return "Başarılı";
     }
 }

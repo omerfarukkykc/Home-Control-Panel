@@ -12,7 +12,8 @@
     });
     App::get('/default/blocked', false);
     App::get('/default/contactus', false);
-    App::post('/default/setmessage',false);
+    App::get('/default/sendmessage',false);
+    App::post('/default/sendmessage',false);
 }
 
 //Client pages
@@ -49,6 +50,7 @@
     App::get('/admin/users', true);
     App::get('/admin/edituser/([\d]+)', true);
     App::get('/admin/editroom/([\d]+)', true);
+    App::get('/admin/messages',true);
     App::get('/admin/logout', true);
     App::get('/admin/login', false);
 

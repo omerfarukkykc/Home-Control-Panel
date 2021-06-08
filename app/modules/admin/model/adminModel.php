@@ -134,6 +134,10 @@ class adminModel extends Model{
         echo $room_id; 
         
     }
+    public function messagesModel(){
+        $this->db->orderBy("ID","DESC");
+        return $this->db->get("contact_messages");
+    }
     // Room operation
     public function getroomsModel()
     {

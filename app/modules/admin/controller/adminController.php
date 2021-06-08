@@ -69,6 +69,10 @@ class adminController extends Controller implements FrontController{
 
     }
 
+    public function messagesAction(){
+        $adminModel = new adminModel();
+        $this->RenderLayout("admin","admin","messages",$adminModel->messagesModel());
+    }
 
     // Room Operation
     public function getroomAction()

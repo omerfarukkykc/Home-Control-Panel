@@ -32,6 +32,12 @@
                 </a>
             </li>
             <li>
+                <a onclick="parentOpen()" href="/admin/messages">
+                    <i class="sidebar-logo fas fa-envelope" aria-hidden="true"></i>
+                    Mesajlar
+                </a>
+            </li>
+            <li>
                 <a onclick="parentOpen()" href="/admin/logout">
                     <i class="sidebar-logo fa fa-sign-out" aria-hidden="true"></i>
                     Çıkış yap
