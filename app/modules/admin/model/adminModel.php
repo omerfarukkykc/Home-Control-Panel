@@ -25,7 +25,7 @@ class adminModel extends Model{
         $this->db->join("user_rols","users.ID = user_rols.user_id");
         $user = $this->db->getOne("users");
         if($user!=null){
-            if($user['rol_id']==1){
+            if($user['rol_id']==1||$user['rol_id']==3){
                 $_SESSION['admin'] = $user;
                 $_SESSION['user'] = $user;
                 Controller::redirect("/admin/dashboard");

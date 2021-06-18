@@ -17,9 +17,11 @@ class clientModel extends Model {
             Controller::redirect("/client/dashboard");
         }
         //3 id li kullanıcı test kullanıcısıdır 
-        if($_SESSION['user']['ID']==3){
-            $this->createTestData(3);
-        }
+        if(isset($_SESSION['user'])){
+            if($_SESSION['user']['rol_id']==3){
+                $this->createTestData(3);
+            }
+        }   
         
     }
     public function dashboardModel(){

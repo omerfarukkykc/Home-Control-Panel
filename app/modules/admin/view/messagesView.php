@@ -55,7 +55,7 @@
                                 <label>Konu: <?=$row['subject']?></label>
                             </div>
                             <div class="satir">
-                                <label>Mesaj: <?=$row['text']?>:</label>
+                                <label>Mesaj: <?=$row['text']?></label>
                             </div>
                         </div>
                     </div>
